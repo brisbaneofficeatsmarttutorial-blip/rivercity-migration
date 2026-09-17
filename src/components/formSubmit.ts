@@ -1,6 +1,5 @@
 export const FORM_SUBMIT_EMAIL = 'rivercity.migration@gmail.com';
 export const FORM_SUBMIT_ENDPOINT = ⁠ https://formsubmit.co/${FORM_SUBMIT_EMAIL} ⁠;
-
 export function submitToEmail(
   formName: string,
   data: Record<string, unknown>
