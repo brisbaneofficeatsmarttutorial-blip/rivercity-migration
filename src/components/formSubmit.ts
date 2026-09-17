@@ -1,7 +1,7 @@
 export const FORM_SUBMIT_EMAIL = 'rivercity.migration@gmail.com';
 
 export const FORM_SUBMIT_ENDPOINT =
-  ⁠ https://formsubmit.co/${FORM_SUBMIT_EMAIL} ⁠;
+  `https://formsubmit.co/${FORM_SUBMIT_EMAIL}`;
 
 export function submitToEmail(
   formName: string,
@@ -9,7 +9,7 @@ export function submitToEmail(
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     try {
-      const iframeName = ⁠ formsubmit_${Date.now()} ⁠;
+      const iframeName = `formsubmit_${Date.now()}`;
 
       const iframe = document.createElement('iframe');
       iframe.name = iframeName;
@@ -23,7 +23,7 @@ export function submitToEmail(
       form.style.display = 'none';
 
       const payload: Record<string, string> = {
-        _subject: ⁠ New Rivercity Migration enquiry - ${formName} ⁠,
+        _subject: `New Rivercity Migration enquiry - ${formName}`,
         _template: 'table',
         _captcha: 'false',
         _replyto: String(data.email || ''),
@@ -39,7 +39,8 @@ export function submitToEmail(
               : 'No'
             : String(value ?? '');
       });
- Object.entries(payload).forEach(([name, value]) => {
+
+      Object.entries(payload).forEach(([name, value]) => {
         const input = document.createElement('input');
         input.type = 'hidden';
         input.name = name;
